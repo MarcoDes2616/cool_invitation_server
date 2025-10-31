@@ -100,16 +100,6 @@ const Users = sequelize.define(
         }
       }
     },
-    role_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue: 2, // 1=admin, 2=user
-      validate: {
-        isInt: {
-          msg: "El role_id debe ser un número entero"
-        }
-      }
-    },
     avatar_url: {
       type: DataTypes.STRING,
       allowNull: true,
