@@ -3,7 +3,9 @@ const helmet = require('helmet');
 const cors = require('cors');
 const router = require('./routes');
 const errorHandler = require('./utils/errorHandler');
+const initModels = require('./models');
 require('dotenv').config();
+initModels();
 
 // Esta es nuestra aplicación
 const app = express();
@@ -15,10 +17,10 @@ app.use(helmet({
 }));
 app.use(cors());
 
-app.use(router);
-app.get('/', (req, res) => {
+app.use("/api/v1", router);
+app.get('/api/v1', (req, res) => {
     return res.send("Welcome to express!");
-})
+});
 
 // middlewares después de las rutas
 app.use(errorHandler)
