@@ -2,23 +2,20 @@ const express = require("express");
 const {
   registerNewUserEmail,
   verifyEmail,
-  login,
-  sendAuthTokenController,
-  getMe,
-  savePushToken,
-  sendCustomNotification,
-  deletePushToken,
-  logout
+  completeRegistration,
 } = require("../controllers/system.controller");
 const verifyJWT = require("../middlewares/auth.middleware");
 
 const systemRouter = express.Router();
 
-systemRouter.route("/registrer_new_user_email")
+systemRouter.route("/register_new_user_email")
   .post(registerNewUserEmail);
 
 systemRouter.route("/verify_email_token")
   .post(verifyEmail);
+
+systemRouter.route("/complete_registration")
+  .post(completeRegistration);
 
 // systemRouter.route("/request_auth_token").post(sendAuthTokenController);
 

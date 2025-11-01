@@ -7,7 +7,7 @@ const UserSession = sequelize.define(
   {
     is_verified: {
       type: DataTypes.BOOLEAN,
-      allowNull: false,
+      allowNull: true,
       defaultValue: false
     },
     password: {

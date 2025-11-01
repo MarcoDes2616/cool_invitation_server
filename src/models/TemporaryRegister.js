@@ -19,9 +19,9 @@ const TemporaryRegister = sequelize.define(
         }
       }
     },
-    token: {
+    registration_token: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       validate: {
         notEmpty: {
           msg: "El token es requerido"
@@ -33,11 +33,6 @@ const TemporaryRegister = sequelize.define(
       allowNull: false,
       defaultValue: false
     },
-    is_register_completed: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-      defaultValue: false
-    }
   },
   {
     timestamps: true, // Para created_at y updated_at automáticos

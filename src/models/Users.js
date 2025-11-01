@@ -31,22 +31,6 @@ const Users = sequelize.define(
         }
       }
     },
-    username: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: {
-        msg: "Este nombre de usuario ya está en uso"
-      },
-      validate: {
-        notEmpty: {
-          msg: "El nombre de usuario es requerido"
-        },
-        len: {
-          args: [3, 30],
-          msg: "El usuario debe tener entre 3 y 30 caracteres"
-        }
-      }
-    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -62,29 +46,10 @@ const Users = sequelize.define(
         }
       }
     },
-    phone: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      validate: {
-        len: {
-          args: [0, 20],
-          msg: "El teléfono no puede exceder 20 caracteres"
-        }
-      }
-    },
     sign_declare: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: false
-    },
-    created_at: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW
-    },
-    updated_at: {
-      type: DataTypes.DATE,
-      allowNull: true
     },
     telegram_user: {
       type: DataTypes.STRING,
@@ -100,18 +65,9 @@ const Users = sequelize.define(
         }
       }
     },
-    avatar_url: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      validate: {
-        isUrl: {
-          msg: "Debe ser una URL válida"
-        }
-      }
-    }
   },
   {
-    timestamps: false,
+    timestamps: true,
     tableName: "users",
     hooks: {
       beforeCreate: (user) => {
